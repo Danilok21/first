@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторна робота №7. Форма замовлення</title>
+</head>
+<body>
+
+    <h2>Завдання 3: Форма замовлення на товар</h2>
+
+    <form action="обробник_замовлення.php" method="post">
+        
+        <fieldset>
+            <legend>🔐 Реквізити замовлення</legend>
+            <p>
+                Номер банківського рахунку: <br>
+                <input type="text" name="account_number" size="30" maxlength="30" required>
+            </p>
+            <p>
+                Особистий номер користувача (Пароль): <br>
+                <input type="password" name="personal_id" size="15" maxlength="10" required>
+            </p>
+        </fieldset>
+
+        <fieldset>
+            <legend>🛍️ Вибір товару</legend>
+            <p>
+                Виберіть товар(и) (утримуйте Ctrl для множинного вибору): <br>
+                <select name="products" size="5" multiple>
+                    <option value="laptop">Ноутбук "Астро"</option>
+                    <option value="monitor">Монітор "Кристал"</option>
+                    <option value="keyboard">Механічна клавіатура</option>
+                    <option value="mouse" selected>Бездротова миша</option>
+                    <option value="headphones">Навушники з шумозаглушенням</option>
+                </select>
+            </p>
+        </fieldset>
+
+        <fieldset>
+            <legend>💵 Вид оплати</legend>
+            <p>
+                Вкажіть вид оплати (радіокнопка, тільки один вибір): <br>
+                <input type="radio" name="payment_type" value="cash" checked> Готівковий розрахунок <br>
+                <input type="radio" name="payment_type" value="card"> Безготівковий розрахунок
+            </p>
+        </fieldset>
+
+        <fieldset>
+            <legend>💬 Додаткова інформація та коментарі</legend>
+            <p>
+                Ваші коментарі до замовлення: <br>
+                <textarea name="comments" rows="5" cols="60" wrap="hard"></textarea>
+            </p>
+            
+            <p>
+                Яку додаткову інформацію Ви бажаєте одержати? (Оберіть одну або обидві опції): <br>
+                <input type="checkbox" name="info_balance" value="yes"> Дані про залишки на рахунку <br>
+                <input type="checkbox" name="info_payments" value="yes" checked> Список останніх виплат по рахунку
+            </p>
+        </fieldset>
+
+        <p>
+            <input type="submit" value="Оформити замовлення">
+            <input type="reset" value="Скасувати введення">
+        </p>
+    </form>
+
+</body>
+</html>

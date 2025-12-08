@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторна робота №7. Анкета за зразком</title>
+    <style>
+        /* Стилі для наближення до вигляду на зображенні */
+        body { font-family: Arial, sans-serif; background-color: #f0f0f0; }
+        .form-container { width: 600px; margin: 20px auto; border: 1px solid #cce; background-color: #fff; padding: 10px; }
+        .anketa-title { color: red; text-align: center; font-size: 24px; font-weight: bold; margin-bottom: 10px; }
+        .form-row { display: flex; border: 1px solid #c9e0f3; margin-top: -1px; } /* Використовуємо -1px для злиття рамок */
+        .label-cell { width: 40%; padding: 5px; background-color: #eaf4ff; border-right: 1px solid #c9e0f3; display: flex; align-items: center; }
+        .input-cell { width: 60%; padding: 5px; }
+        input[type="text"], input[type="email"] { width: 95%; padding: 3px; border: 1px solid #ccc; }
+        .textarea-input-cell { width: 60%; padding: 5px; }
+        textarea { width: 95%; resize: none; height: 120px; padding: 3px; border: 1px solid #ccc; }
+        .submit-buttons { text-align: left; margin-top: 10px; }
+        .submit-buttons input { padding: 8px 15px; margin-right: 10px; border: 1px solid #aaa; background-color: #eee; cursor: pointer; }
+        .field-number { font-weight: bold; margin-right: 5px; }
+    </style>
+</head>
+<body>
+
+    <h2>Завдання 2: Створення форми-анкети за вказаним зразком</h2>
+
+    <div class="form-container">
+        <div class="anketa-title">Анкета</div>
+        
+        <form action="обробник_анкети.php" method="post">
+            
+            <div class="form-row">
+                <div class="label-cell"><span class="field-number">1.</span> Прізвище</div>
+                <div class="input-cell"><input type="text" name="surname" required></div>
+            </div>
+
+            <div class="form-row">
+                <div class="label-cell"><span class="field-number">2.</span> Ім'я, по батькові</div>
+                <div class="input-cell"><input type="text" name="full_name" required></div>
+            </div>
+
+            <div class="form-row">
+                <div class="label-cell"><span class="field-number">3.</span> Число і рік народження</div>
+                <div class="input-cell"><input type="text" name="dob" required></div>
+            </div>
+
+            <div class="form-row">
+                <div class="label-cell"><span class="field-number">4.</span> Домашня адреса</div>
+                <div class="input-cell"><input type="text" name="address"></div>
+            </div>
+            
+            <div class="form-row">
+                <div class="label-cell"><span class="field-number">5.</span> Місце навчання (роботи)</div>
+                <div class="input-cell"><input type="text" name="work_study_place"></div>
+            </div>
+
+            <div class="form-row">
+                <div class="label-cell"><span class="field-number">6.</span> Домашній (робочий) телефон</div>
+                <div class="input-cell"><input type="text" name="phone"></div>
+            </div>
+
+            <div class="form-row">
+                <div class="label-cell"><span class="field-number">7.</span> E-mail</div>
+                <div class="input-cell"><input type="email" name="email"></div>
+            </div>
+
+            <div class="form-row">
+                <div class="label-cell"><span class="field-number">8.</span> Область наукових інтересів</div>
+                <div class="textarea-input-cell">
+                    1. <input type="text" name="interest_1" style="width: 90%;"><br>
+                    2. <input type="text" name="interest_2" style="width: 90%;"><br>
+                    3. <input type="text" name="interest_3" style="width: 90%;"><br>
+                    4. <input type="text" name="interest_4" style="width: 90%;"><br>
+                    5. <input type="text" name="interest_5" style="width: 90%;"><br>
+                    6. <input type="text" name="interest_6" style="width: 90%;">
+                </div>
+            </div>
+            
+            <div class="submit-buttons">
+                <input type="reset" value="Відмінити введення"><br>
+                <input type="submit" value="Надіслати дані та перейти до 2 етапу реєстрації">
+            </div>
+        </form>
+
+    </div>
+
+</body>
+</html>
