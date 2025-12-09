@@ -1,0 +1,106 @@
+/* Базові стилі та вимоги */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    /* Вимога 1: всі елементи знаходяться у головному блоці wrapper */
+    display: grid;
+    /* Вимога 2: зовнішній відступ між блоками 3px */
+    gap: 3px; 
+    padding: 3px;
+    /* Вимога 3: блоки повинні повністю заповнювати весь вільний простір екрану */
+    min-height: 100vh;
+    max-width: 1200px; /* Обмежуємо для наочності */
+    margin: 0 auto;
+}
+
+.block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    /* Вимога 5: рамка 1px білого або світло-сірого кольору */
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+/* Вимога 4: колір блоків відповідно до зразку */
+/* Приблизні кольори з вашого малюнка */
+.a { background-color: #0000ff; }       /* Насичений Синій */
+.b { background-color: #79c5c9; }       /* Світло-блакитний / Бірюзовий */
+.c { background-color: #ff3333; }       /* Червоний */
+.d { background-color: #008000; }       /* Насичений Зелений */
+.e { background-color: #ffff00; }       /* Жовтий */
+.f { background-color: #808080; }       /* Сірий */
+.g { background-color: #a52a2a; }       /* Коричневий / Каштановий */
+
+
+/* ======================================================= */
+/* АДАПТИВНІСТЬ (Вимога 6: @media) */
+/* ======================================================= */
+
+/* 1. МАКЕТ <500px (Мобільний) */
+@media (max-width: 499px) {
+    .wrapper {
+        grid-template-columns: 1fr; /* Один стовпець */
+    }
+    .block {
+        height: 100px; /* Усі блоки один під одним */
+    }
+}
+
+/* 2. МАКЕТ ≥500px */
+@media (min-width: 500px) and (max-width: 749px) {
+    .wrapper {
+        grid-template-columns: repeat(4, 1fr); /* 4 стовпці */
+        grid-auto-rows: 120px;
+    }
+    .a, .g { grid-column: 1 / span 4; }
+    .f { grid-column: 4; grid-row: 2 / span 4; } /* F: 4 рядки праворуч */
+    .b { grid-column: 1 / span 1; grid-row: 2; }
+    .c { grid-column: 2 / span 2; grid-row: 2; }
+    .e { grid-column: 1 / span 3; grid-row: 3 / span 2; }
+    .d { grid-column: 1 / span 3; grid-row: 5; }
+}
+
+/* 3. МАКЕТ ≥750px */
+@media (min-width: 750px) and (max-width: 949px) {
+    .wrapper {
+        grid-template-columns: repeat(9, 1fr); /* 9 стовпців */
+        grid-auto-rows: minmax(130px, auto);
+    }
+    .a { grid-column: 1 / span 7; grid-row: 1; }
+    .f { grid-column: 8 / span 2; grid-row: 1 / span 3; }
+    .b { grid-column: 1 / span 2; grid-row: 2; }
+    .c { grid-column: 3 / span 3; grid-row: 2; }
+    .e { grid-column: 6 / span 2; grid-row: 2 / span 2; }
+    .d { grid-column: 1 / span 5; grid-row: 3; }
+    .g { grid-column: 1 / span 9; grid-row: 4; }
+}
+
+/* 5. МАКЕТ ≥1200px (Фінальний макет, що відповідає зразку) */
+@media (min-width: 1200px) {
+    .wrapper {
+        grid-template-columns: repeat(12, 1fr); /* 12 колонок для точного контролю */
+        grid-auto-rows: minmax(150px, auto); /* Базова висота рядка */
+    }
+
+    /* Рядок 1: A (8/12) та F (4/12) */
+    .a { grid-column: 1 / span 8; grid-row: 1; height: 180px; }
+    .f { grid-column: 9 / span 4; grid-row: 1 / span 3; } /* F займає 3 рядки */
+    
+    /* Рядок 2: B (2/12), C (3/12), E (4/12) */
+    .b { grid-column: 1 / span 2; grid-row: 2; height: 180px; }
+    .c { grid-column: 3 / span 3; grid-row: 2; height: 180px; }
+    .e { grid-column: 6 / span 3; grid-row: 2 / span 2; } /* E займає 2 рядки */
+    
+    /* Рядок 3: D (5/12) */
+    .d { grid-column: 1 / span 5; grid-row: 3; height: 180px; }
+    
+    /* Рядок 4: G (12/12) */
+    .g { grid-column: 1 / span 12; grid-row: 4; height: 180px; }
+}
