@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Лаб. №9, Завдання 3 - Класи menu та small</title>
+    <style>
+        /* Клас для елементів меню */
+        .menu {
+            font-family: 'Tahoma', sans-serif;
+            font-size: 16pt;
+            font-weight: bold;
+            color: white;
+            background-color: #007bff; /* Синій фон */
+            padding: 8px 15px;
+            margin-right: 5px;
+            text-decoration: none; /* Прибрати підкреслення для посилань */
+            display: inline-block; /* Для можливості застосувати padding */
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        /* Зміна кольору при наведенні курсору */
+        .menu:hover {
+            background-color: #0056b3;
+        }
+
+        /* Клас для невеликих інформаційних повідомлень */
+        .small {
+            font-family: 'Courier New', monospace;
+            font-size: 9pt;
+            color: #6c757d; /* Сірий */
+            margin-top: 15px;
+            border-top: 1px dotted #ccc;
+            padding-top: 5px;
+            display: block; /* Щоб займати весь рядок */
+        }
+    </style>
+</head>
+<body>
+    <h1>Використання класів 'menu' та 'small'</h1>
+    <hr>
+
+    <h2>Навігаційне меню</h2>
+    <nav>
+        <a href="#" class="menu">Головна</a>
+        <a href="#" class="menu">Про нас</a>
+        <a href="#" class="menu">Послуги</a>
+        <a href="#" class="menu">Контакти</a>
+    </nav>
+
+    <p style="margin-top: 30px;">
+        Це основний контент сторінки. Ми використали клас `menu` для стилізації елементів навігації `<a>`.
+    </p>
+
+    <div style="margin-top: 50px;">
+        <span class="small">
+            Адреса поточної сторінки: **danidprotgmail.com**
+        </span>
+        <span class="small">
+            Ім'я автора: **Данило Протасов**
+        </span>
+        <span class="small">
+            &copy; 2025 Всі права захищено.
+        </span>
+    </div>
+
+    <p style="margin-top: 20px;">
+        Клас `small` застосовується для виведення невеликих інформаційних повідомлень у нижній частині сторінки.
+    </p>
+</body>
+</html>
